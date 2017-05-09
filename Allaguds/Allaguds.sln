@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Allaguds", "Allaguds\Allaguds.ccproj", "{FEF90F2D-3503-4A12-8C44-C22B8892D67D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRole1", "WebRole1\WebRole1.csproj", "{3CF732C4-3B09-49FC-A636-B9325CD5E963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole1", "WorkerRole1\WorkerRole1.csproj", "{21298889-6648-456B-956E-FFDF5E39302D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEF90F2D-3503-4A12-8C44-C22B8892D67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF90F2D-3503-4A12-8C44-C22B8892D67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF90F2D-3503-4A12-8C44-C22B8892D67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF90F2D-3503-4A12-8C44-C22B8892D67D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF732C4-3B09-49FC-A636-B9325CD5E963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF732C4-3B09-49FC-A636-B9325CD5E963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF732C4-3B09-49FC-A636-B9325CD5E963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF732C4-3B09-49FC-A636-B9325CD5E963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21298889-6648-456B-956E-FFDF5E39302D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21298889-6648-456B-956E-FFDF5E39302D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21298889-6648-456B-956E-FFDF5E39302D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21298889-6648-456B-956E-FFDF5E39302D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
