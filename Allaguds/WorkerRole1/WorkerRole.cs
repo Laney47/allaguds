@@ -60,11 +60,42 @@ namespace WorkerRole1
 
         private async Task RunAsync(CancellationToken cancellationToken)
         {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
+            try
             {
-                Trace.TraceInformation("Working");
-                await Task.Delay(1000);
+                WorkerQueue q = new WorkerQueue();
+                // TODO: Replace the following with your own logic.
+                while (!cancellationToken.IsCancellationRequested)
+                {
+                    String peekedMessage = q.peekMessage();
+
+                    if (peekedMessage != null)
+                    {
+                        Trace.TraceInformation(peekedMessage);
+                        char delimitor = '*';
+                        String[] substrings = peekedMessage.Split(delimitor);
+                        if (substrings[0].Equals("validateinfo"))
+                        {
+                            Trace.TraceInformation("Validate the credentials: " + substrings[1]);
+                            //Validate the info return message in queue
+                            //q.sendMessage();
+                        }
+                        else if (substrings[0].Equals("getInfo"))
+                        {
+                            Trace.TraceInformation("get the info for :" + substrings[1]);
+                            //use the parameters in the other substring to get correct info and return it
+                            //q.sendMessage();
+                        }
+
+
+                    }
+
+                    Trace.TraceInformation("Working");
+                    await Task.Delay(1000);
+                }
+            }
+            catch (Exception e)
+            {
+                Trace.TraceInformation(e.StackTrace);
             }
         }
     }
