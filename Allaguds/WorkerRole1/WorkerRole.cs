@@ -71,10 +71,27 @@ namespace WorkerRole1
                     if (peekedMessage != null)
                     {
                         Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+                        Trace.TraceInformation(peekedMessage);
+
                         char delimitor = '*';
                         String[] substrings = peekedMessage.Split(delimitor);
+                        //we splitstring to seperate the command ([0]) from the message body
                         if (substrings[0].Equals("validateinfo"))
                         {
+                            ApiConnector ApiC = new ApiConnector();
+
+                            ApiC.validateLogin(substrings[1]);
+
                             Trace.TraceInformation("Validate the credentials: " + substrings[1]);
                             //Validate the info return message in queue
                             //q.sendMessage();

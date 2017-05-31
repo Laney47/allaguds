@@ -19,7 +19,9 @@
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Sign in" />
         <br />
         <br />
-    
+        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Login from your Google ID" />
+        <br />
+        
     </div>
     </form>
 </body>
