@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Http;
+
 
 namespace WebRole1
 {
@@ -11,6 +13,15 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            String mail = (String)(Session["mail"]);
+            ApiConnectorcs api = new ApiConnectorcs();
+            //HttpResponseMessage Accelresponse = api.GetAccelDataForUser(mail);
+           // HttpResponseMessage Locationresponse = api.GetLocationDataForUser(mail);
+            HttpResponseMessage HeartRateresponse = api.GetHeartRateDataForUser(mail);
+            String text = HeartRateresponse.ToString();
+            testLabel.Text = text;
+            
+
 
         }
     }

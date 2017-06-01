@@ -32,10 +32,18 @@ namespace WebRole1
             String username = userBox.Text.ToString();
             String password = passBox.Text.ToString();
 
-            String message = "validateinfo*" + username + "-" + password;
+            String message = username + "*" + password;
+            ApiConnectorcs api = new ApiConnectorcs();
+            String response = api.validateLogin(message);
+            if (response.Equals("successLogin"))
+            {
+                Session["email"] = username;
+                Response.Redirect("AppendData.aspx");
+            }
+            else
+            {
 
-            WebQueue q = new WebQueue();
-            q.sendMessage(message);
+            }
 
         }
 
