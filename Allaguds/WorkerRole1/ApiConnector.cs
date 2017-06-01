@@ -46,6 +46,102 @@ namespace WorkerRole1
 
             q.sendMessage(responseMessage);
         }
+        public void GetLocationDataForUser(String param)
+        {
+            String responseMessage = " ";
+            WorkerQueue q = new WorkerQueue();
+
+            //We splitstring the messagebody to differentiate the username(substring[0]) from the password(substring[1])
+            char delimitor = '-';
+            String[] substrings = param.Split(delimitor);
+
+            string URL = "http://datacollectapi20170528075302.azurewebsites.net/api/Location/UserCollections";
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(URL);
+
+            // Add an Accept header for JSON format.
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            // List data response.
+            HttpResponseMessage response = client.GetAsync("?owner=" + substrings[1]).Result;  // Blocking call!
+            if (response.IsSuccessStatusCode)
+            {
+                responseMessage = "successLogin";
+
+
+            }
+            else
+            {
+                responseMessage = "failLogin";
+
+            }
+
+            q.sendMessage(responseMessage);
+        }
+        public void GetAccelDataForUser(String param)
+        {
+            String responseMessage = " ";
+            WorkerQueue q = new WorkerQueue();
+
+            //We splitstring the messagebody to differentiate the username(substring[0]) from the password(substring[1])
+            char delimitor = '-';
+            String[] substrings = param.Split(delimitor);
+
+            string URL = "http://datacollectapi20170528075302.azurewebsites.net/api/Accelerometer/UserCollections";
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(URL);
+
+            // Add an Accept header for JSON format.
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            // List data response.
+            HttpResponseMessage response = client.GetAsync("?owner=" + substrings[1]).Result;  // Blocking call!
+            if (response.IsSuccessStatusCode)
+            {
+                responseMessage = "successLogin";
+
+
+            }
+            else
+            {
+                responseMessage = "failLogin";
+
+            }
+
+            q.sendMessage(responseMessage);
+        }
+        public void GetHeartRateDataForUser(String param)
+        {
+            String responseMessage = " ";
+            WorkerQueue q = new WorkerQueue();
+
+            //We splitstring the messagebody to differentiate the username(substring[0]) from the password(substring[1])
+            char delimitor = '-';
+            String[] substrings = param.Split(delimitor);
+
+            string URL = "http://datacollectapi20170528075302.azurewebsites.net/api/Heartrate/UserCollections";
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(URL);
+
+            // Add an Accept header for JSON format.
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            // List data response.
+            HttpResponseMessage response = client.GetAsync("?owner=" + substrings[1]).Result;  // Blocking call!
+            if (response.IsSuccessStatusCode)
+            {
+                responseMessage = "successLogin";
+
+
+            }
+            else
+            {
+                responseMessage = "failLogin";
+
+            }
+
+            q.sendMessage(responseMessage);
+        }
 
 
     }

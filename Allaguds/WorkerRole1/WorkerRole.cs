@@ -72,23 +72,14 @@ namespace WorkerRole1
                     {
                         Trace.TraceInformation(peekedMessage);
                         Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
-                        Trace.TraceInformation(peekedMessage);
 
+                        ApiConnector ApiC = new ApiConnector();
                         char delimitor = '*';
                         String[] substrings = peekedMessage.Split(delimitor);
                         //we splitstring to seperate the command ([0]) from the message body
                         if (substrings[0].Equals("validateinfo"))
                         {
-                            ApiConnector ApiC = new ApiConnector();
+                            
 
                             ApiC.validateLogin(substrings[1]);
 
@@ -96,13 +87,28 @@ namespace WorkerRole1
                             //Validate the info return message in queue
                             //q.sendMessage();
                         }
-                        else if (substrings[0].Equals("getInfo"))
+                        else if (substrings[0].Equals("getLocation"))
                         {
-                            Trace.TraceInformation("get the info for :" + substrings[1]);
+
+                            ApiC.GetLocationDataForUser(substrings[1]);
+
+                            Trace.TraceInformation("get location for :" + substrings[1]);
                             //use the parameters in the other substring to get correct info and return it
                             //q.sendMessage();
                         }
+                        else if (substrings[0].Equals("getAccel"))
+                        {
 
+                            ApiC.GetAccelDataForUser(substrings[1]);
+
+                            Trace.TraceInformation("get accel data for :" + substrings[1]);
+                        }
+                        else if (substrings[0].Equals("getHeartRate"))
+                        {
+                            ApiC.GetHeartRateDataForUser(substrings[1]);
+
+                            Trace.TraceInformation("get heartrate info for :" + substrings[1]);
+                        }
 
                     }
 
