@@ -227,11 +227,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppendData.aspx" />
     <Content Include="Global.asax" />
     <Content Include="test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiConnectorcs.cs" />
+    <Compile Include="AppendData.aspx.cs">
+      <DependentUpon>AppendData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppendData.aspx.designer.cs">
+      <DependentUpon>AppendData.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

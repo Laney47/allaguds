@@ -1,23 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
+using System.Web;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace WorkerRole1
+namespace WebRole1
 {
-    class ApiConnector
+    public class ApiConnectorcs
     {
-        
-
-        public void validateLogin(String param)
+        public String validateLogin(String param)
         {
             String responseMessage = " ";
-            WorkerQueue q = new WorkerQueue();
 
             //We splitstring the messagebody to differentiate the username(substring[0]) from the password(substring[1])
             char delimitor = '-';
@@ -35,21 +29,21 @@ namespace WorkerRole1
             if (response.IsSuccessStatusCode)
             {
                 responseMessage = "successLogin";
-                
-                
+
+
             }
             else
             {
                 responseMessage = "failLogin";
-                
+
             }
 
-            q.sendMessage(responseMessage);
+            return responseMessage;
         }
-        public void GetLocationDataForUser(String param)
+        public String GetLocationDataForUser(String param)
         {
             String responseMessage = " ";
-            WorkerQueue q = new WorkerQueue();
+
 
             //We splitstring the messagebody to differentiate the username(substring[0]) from the password(substring[1])
             char delimitor = '-';
@@ -67,7 +61,7 @@ namespace WorkerRole1
             if (response.IsSuccessStatusCode)
             {
                 responseMessage = "successLogin";
-                
+
 
             }
             else
@@ -76,12 +70,11 @@ namespace WorkerRole1
 
             }
 
-            q.sendMessage(responseMessage);
+            return responseMessage;
         }
-        public void GetAccelDataForUser(String param)
+        public String GetAccelDataForUser(String param)
         {
             String responseMessage = " ";
-            WorkerQueue q = new WorkerQueue();
 
             //We splitstring the messagebody to differentiate the username(substring[0]) from the password(substring[1])
             char delimitor = '-';
@@ -108,12 +101,11 @@ namespace WorkerRole1
 
             }
 
-            q.sendMessage(responseMessage);
+            return responseMessage;
         }
-        public void GetHeartRateDataForUser(String param)
+        public String GetHeartRateDataForUser(String param)
         {
             String responseMessage = " ";
-            WorkerQueue q = new WorkerQueue();
 
             //We splitstring the messagebody to differentiate the username(substring[0]) from the password(substring[1])
             char delimitor = '-';
@@ -140,9 +132,7 @@ namespace WorkerRole1
 
             }
 
-            q.sendMessage(responseMessage);
+            return responseMessage;
         }
-
-
     }
 }
